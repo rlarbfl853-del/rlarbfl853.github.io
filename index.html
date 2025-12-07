@@ -20,7 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* 네비게이션 */
         nav {
             position: fixed;
             top: 0;
@@ -71,7 +70,6 @@
             color: #8B0000;
         }
 
-        /* 히어로 섹션 */
         .hero {
             height: 100vh;
             display: flex;
@@ -149,7 +147,6 @@
             }
         }
 
-        /* 포트폴리오 섹션 */
         .portfolio {
             padding: 5rem 2rem;
             background: #f8f8f8;
@@ -275,7 +272,6 @@
             font-weight: bold;
         }
 
-        /* 상세 페이지 스타일 */
         .detail-page {
             display: none;
             padding: 5rem 2rem;
@@ -354,7 +350,6 @@
             transform: scale(1.05);
         }
 
-        /* 라이트박스 */
         .lightbox {
             display: none;
             position: fixed;
@@ -388,7 +383,6 @@
             z-index: 2001;
         }
 
-        /* About 섹션 */
         .about {
             padding: 5rem 2rem;
             background: #ffffff;
@@ -450,7 +444,6 @@
             font-size: 0.9rem;
         }
 
-        /* 푸터 */
         footer {
             background: #ffffff;
             padding: 3rem 2rem;
@@ -485,7 +478,6 @@
             color: #666;
         }
 
-        /* 반응형 */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -519,7 +511,6 @@
     </style>
 </head>
 <body>
-    <!-- 메인 페이지 -->
     <div id="main-page">
         <nav>
             <div class="container">
@@ -553,7 +544,7 @@
                         <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/f47f4343-5b32-484e-a749-718fc908b427_car_202x158.png?h=bb7aca765f9d9bcc5fc9422ecafaccc9" alt="일러스트">
                         <div class="portfolio-overlay">
                             <i class="fas fa-images"></i>
-                            <span>6개 작품 보기</span>
+                            <span>5개 작품 보기</span>
                         </div>
                         <div class="portfolio-content">
                             <h3>디지털 일러스트</h3>
@@ -570,7 +561,7 @@
                         <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/0a7da459-b88d-4f04-b0e6-e7c41ae3fac2_rwc_2005x1220x1016x794x1016.png?h=41c3cedb7e7dae49fae7252633bf6875" alt="캐릭터 창작">
                         <div class="portfolio-overlay">
                             <i class="fas fa-user-friends"></i>
-                            <span>5개 작품 보기</span>
+                            <span>8개 작품 보기</span>
                         </div>
                         <div class="portfolio-content">
                             <h3>캐릭터 디자인</h3>
@@ -583,19 +574,19 @@
                         </div>
                     </div>
 
-                    <div class="portfolio-item" onclick="showDetailPage('pixel')">
-                        <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/4339f926-ac24-41c0-9566-74c6131d186f_car_202x158.png?h=12077105fc614b87b862382ce9d2ea1f" alt="도트 아트">
+                    <div class="portfolio-item" onclick="showDetailPage('fancy')">
+                        <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/ba54aef2-9b1a-4a3c-8629-d2e2f7db0336_rw_1200.png?h=b4b1cdb6a422af2439a4f55916e6fa25" alt="팬시 아트">
                         <div class="portfolio-overlay">
-                            <i class="fas fa-th"></i>
-                            <span>3개 작품 보기</span>
+                            <i class="fas fa-heart"></i>
+                            <span>14개 작품 보기</span>
                         </div>
                         <div class="portfolio-content">
                             <h3>팬시 아트 컬렉션</h3>
-                            <p> 큐티하게 제작된 팬시 아트 작품들입니다.</p>
-                                   <div class="portfolio-tags">
-                                <span class="tag">Character Design</span>
+                            <p>귀엽고 발랄한 마스코트 캐릭터 창작 작품들입니다.</p>
+                            <div class="portfolio-tags">
                                 <span class="tag">Fancy Art</span>
-                                <span class="tag">Mascot</span>
+                                <span class="tag">Mascot Design</span>
+                                <span class="tag">Character Art</span>
                             </div>
                         </div>
                     </div>
@@ -604,7 +595,7 @@
                         <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3b943e26-8b2c-444f-abf6-4426b59714e0_rwc_0x11x405x316x405.png?h=9e151d1410b645d2839cce17a2692a75" alt="3D 모델링">
                         <div class="portfolio-overlay">
                             <i class="fas fa-cube"></i>
-                            <span>13개 작품 보기</span>
+                            <span>4개 작품 보기</span>
                         </div>
                         <div class="portfolio-content">
                             <h3>3D 모델링 & 렌더링</h3>
@@ -677,7 +668,6 @@
         </footer>
     </div>
 
-    <!-- 일러스트 상세 페이지 -->
     <div id="illustration-page" class="detail-page">
         <nav>
             <div class="container">
@@ -713,15 +703,11 @@
                 </div>
                 <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/1caff78f-2a50-4456-b756-d892c971cac8_rw_600.png?h=6f30db9dad4396d8726b9a02b235ea73')">
                     <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/1caff78f-2a50-4456-b756-d892c971cac8_rw_600.png?h=6f30db9dad4396d8726b9a02b235ea73" alt="일러스트 5">
-                      </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/380968f0-b875-4b1d-983c-d7fdbe13884f_rw_600.png?h=c56be909e9d75b8935f0a8da530563a4')">
-                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/380968f0-b875-4b1d-983c-d7fdbe13884f_rw_600.png?h=c56be909e9d75b8935f0a8da530563a4" alt="캐릭터 5">
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 캐릭터 창작 상세 페이지 -->
     <div id="character-page" class="detail-page">
         <nav>
             <div class="container">
@@ -755,46 +741,8 @@
                 <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/d375c851-a386-47e7-b6d3-7bb47de3076c_rw_600.jpg?h=497f55883b77099258a0ccd0ea32925d')">
                     <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/d375c851-a386-47e7-b6d3-7bb47de3076c_rw_600.jpg?h=497f55883b77099258a0ccd0ea32925d" alt="캐릭터 4">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/Bo2JpWE.jpeg')">
-                    <img src="https://i.imgur.com/Bo2JpWE.jpeg" alt="캐릭터 9">
-            </div>
-        </div>
-    </div>
-
-    <!-- 팬시 아트 상세 페이지 -->
-    <div id="pixel-page" class="detail-page">
-        <nav>
-            <div class="container">
-                  <span class="back-button" onclick="showMainPage()">
-                <i class="fas fa-arrow-left"></i> 메인으로 돌아가기
-            </span>
-            <div class="detail-title">
-                <h2>팬시 아트 컬렉션</h2>
-                <p>귀엽고 발랄한 마스코트 캐릭터 창작 작품들</p>
-            </div>
-            <div class="gallery-grid">
-                  </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/ba54aef2-9b1a-4a3c-8629-d2e2f7db0336_rw_1200.png?h=b4b1cdb6a422af2439a4f55916e6fa25" alt="팬시1">
-               </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/8594b62a-b3c5-432c-9ddb-b53671257aad_rw_1920.png?h=4d79818d8e8d66a66f606e0a66e910d8" alt="팬시2">   
-               </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/65e44464-e56c-4959-b63a-e37fe3a17e5f_rw_1200.png?h=177835eeb2539cdda3fa638fa3dad0be" alt="팬시3">   
-               </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/ede4c867-7103-440e-b4c3-2d4f265d4cd4_rw_1920.png?h=7ecc7b82099e39d486a70e614b33ec6f" alt="팬시4">   
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/49150ab5-777e-4064-9a8d-92748f957bf2_rw_1920.png?h=84665277017b2998049fc5148fa94cd3" alt="팬시5">   
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/b41676c6-54f4-47ff-985d-5eef7db82769_rw_1920.png?h=45acd89b68814b1c369338e4d748b740" alt="팬시6">   
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/11515aa1-93fc-4fbf-8111-4d21bcda6a93_rw_1920.png?h=c1b337730defe8850b44b9abd5c6a804" alt="팬시7"> 
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/475d8431-0bb0-4151-8079-959a05f1d7ce_rw_1920.png?h=9c8a76ad362d48ba86a5cf568d77125a" alt="팬시8">   
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/b680a2af-5025-4a23-8615-eb7760749ffd_rw_1920.png?h=36a288e39dfabe4932accb66589b1228" alt="팬시9">   
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/bb2c1481-c7bd-4695-9213-53cc52cb774a_rw_1920.png?h=83312b2c47963514b8a18749b29ae1f9" alt="팬시10">   
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3c8ca49b-8183-459c-9ab6-3b33aaca4f5b_rw_1920.png?h=0c4ad2765dfb657affb0662b6763e2c1" alt="팬시11">   
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/380968f0-b875-4b1d-983c-d7fdbe13884f_rw_600.png?h=c56be909e9d75b8935f0a8da530563a4')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/380968f0-b875-4b1d-983c-d7fdbe13884f_rw_600.png?h=c56be909e9d75b8935f0a8da530563a4" alt="캐릭터 5">
                 </div>
                 <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/f6e48c5d-f25f-43e2-9a1a-38776d7a8842_rw_600.png?h=55dbefae701ecb30abd267c463bc39de')">
                     <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/f6e48c5d-f25f-43e2-9a1a-38776d7a8842_rw_600.png?h=55dbefae701ecb30abd267c463bc39de" alt="캐릭터 6">
@@ -804,6 +752,17 @@
                 </div>
                 <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/41389299-4b37-4c8f-ad0a-52441613a414_rw_600.png?h=5b8f662c02901684eeab504f8c2a5987')">
                     <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/41389299-4b37-4c8f-ad0a-52441613a414_rw_600.png?h=5b8f662c02901684eeab504f8c2a5987" alt="캐릭터 8">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/Bo2JpWE.jpeg')">
+                    <img src="https://i.imgur.com/Bo2JpWE.jpeg" alt="캐릭터 9">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fancy-page" class="detail-page">
+        <nav>
+            <div class="container">
                 <span class="logo" onclick="showMainPage()">김규리</span>
                 <ul class="nav-links">
                     <li><a onclick="showMainPage()">홈</a></li>
@@ -818,24 +777,56 @@
                 <i class="fas fa-arrow-left"></i> 메인으로 돌아가기
             </span>
             <div class="detail-title">
-                <h2>도트 아트 컬렉션</h2>
-                <p>픽셀 단위로 섬세하게 제작된 레트로 게임 스타일의 도트 아트</p>
+                <h2>팬시 아트 컬렉션</h2>
+                <p>귀엽고 발랄한 마스코트 캐릭터 창작 작품들</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3c97703e-64c4-4ac9-9baf-0884f07d68c3_rw_600.png?h=954656593cf881eb3db208827a3b9c92')">
-                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3c97703e-64c4-4ac9-9baf-0884f07d68c3_rw_600.png?h=954656593cf881eb3db208827a3b9c92" alt="도트 아트 1">
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/ba54aef2-9b1a-4a3c-8629-d2e2f7db0336_rw_1200.png?h=b4b1cdb6a422af2439a4f55916e6fa25')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/ba54aef2-9b1a-4a3c-8629-d2e2f7db0336_rw_1200.png?h=b4b1cdb6a422af2439a4f55916e6fa25" alt="팬시1">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/198f49bf-0830-4054-988e-81217cbf045f_rw_600.png?h=02acd3eed49f452a276ddfd521a81441')">
-                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/198f49bf-0830-4054-988e-81217cbf045f_rw_600.png?h=02acd3eed49f452a276ddfd521a81441" alt="도트 아트 2">
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/8594b62a-b3c5-432c-9ddb-b53671257aad_rw_1920.png?h=4d79818d8e8d66a66f606e0a66e910d8')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/8594b62a-b3c5-432c-9ddb-b53671257aad_rw_1920.png?h=4d79818d8e8d66a66f606e0a66e910d8" alt="팬시2">   
                 </div>
-                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/d4d1bcac-9614-4b16-aa45-3e958598d009_rw_600.png?h=8729ae0b212b8af25d98bafcf49c2e8b')">
-                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/d4d1bcac-9614-4b16-aa45-3e958598d009_rw_600.png?h=8729ae0b212b8af25d98bafcf49c2e8b" alt="도트 아트 3">
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/65e44464-e56c-4959-b63a-e37fe3a17e5f_rw_1200.png?h=177835eeb2539cdda3fa638fa3dad0be')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/65e44464-e56c-4959-b63a-e37fe3a17e5f_rw_1200.png?h=177835eeb2539cdda3fa638fa3dad0be" alt="팬시3">   
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/ede4c867-7103-440e-b4c3-2d4f265d4cd4_rw_1920.png?h=7ecc7b82099e39d486a70e614b33ec6f')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/ede4c867-7103-440e-b4c3-2d4f265d4cd4_rw_1920.png?h=7ecc7b82099e39d486a70e614b33ec6f" alt="팬시4">   
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/49150ab5-777e-4064-9a8d-92748f957bf2_rw_1920.png?h=84665277017b2998049fc5148fa94cd3')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/49150ab5-777e-4064-9a8d-92748f957bf2_rw_1920.png?h=84665277017b2998049fc5148fa94cd3" alt="팬시5">   
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/b41676c6-54f4-47ff-985d-5eef7db82769_rw_1920.png?h=45acd89b68814b1c369338e4d748b740')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/b41676c6-54f4-47ff-985d-5eef7db82769_rw_1920.png?h=45acd89b68814b1c369338e4d748b740" alt="팬시6">   
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/11515aa1-93fc-4fbf-8111-4d21bcda6a93_rw_1920.png?h=c1b337730defe8850b44b9abd5c6a804')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/11515aa1-93fc-4fbf-8111-4d21bcda6a93_rw_1920.png?h=c1b337730defe8850b44b9abd5c6a804" alt="팬시7"> 
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/475d8431-0bb0-4151-8079-959a05f1d7ce_rw_1920.png?h=9c8a76ad362d48ba86a5cf568d77125a')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/475d8431-0bb0-4151-8079-959a05f1d7ce_rw_1920.png?h=9c8a76ad362d48ba86a5cf568d77125a" alt="팬시8">   
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/b680a2af-5025-4a23-8615-eb7760749ffd_rw_1920.png?h=36a288e39dfabe4932accb66589b1228')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/b680a2af-5025-4a23-8615-eb7760749ffd_rw_1920.png?h=36a288e39dfabe4932accb66589b1228" alt="팬시9">   
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/bb2c1481-c7bd-4695-9213-53cc52cb774a_rw_1920.png?h=83312b2c47963514b8a18749b29ae1f9')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/bb2c1481-c7bd-4695-9213-53cc52cb774a_rw_1920.png?h=83312b2c47963514b8a18749b29ae1f9" alt="팬시10">   
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3c8ca49b-8183-459c-9ab6-3b33aaca4f5b_rw_1920.png?h=0c4ad2765dfb657affb0662b6763e2c1')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3c8ca49b-8183-459c-9ab6-3b33aaca4f5b_rw_1920.png?h=0c4ad2765dfb657affb0662b6763e2c1" alt="팬시11">   
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/f6e48c5d-f25f-43e2-9a1a-38776d7a8842_rw_600.png?h=55dbefae701ecb30abd267c463bc39de')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/f6e48c5d-f25f-43e2-9a1a-38776d7a8842_rw_600.png?h=55dbefae701ecb30abd267c463bc39de" alt="팬시12">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/6a981b36-dcf4-4616-8ca3-2e88b8e4550e_rw_600.png?h=ec157df66cc34983c30c8adcdb06b0e2')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/6a981b36-dcf4-4616-8ca3-2e88b8e4550e_rw_600.png?h=ec157df66cc34983c30c8adcdb06b0e2" alt="팬시13">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/41389299-4b37-4c8f-ad0a-52441613a414_rw_600.png?h=5b8f662c02901684eeab504f8c2a5987')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/41389299-4b37-4c8f-ad0a-52441613a414_rw_600.png?h=5b8f662c02901684eeab504f8c2a5987" alt="팬시14">
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 3D 모델링 상세 페이지 -->
     <div id="3d-page" class="detail-page">
         <nav>
             <div class="container">
@@ -873,14 +864,12 @@
         </div>
     </div>
 
-    <!-- 라이트박스 -->
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
         <img id="lightbox-image" src="" alt="">
     </div>
 
     <script>
-        // 페이지 전환 함수들
         function showMainPage() {
             document.getElementById('main-page').style.display = 'block';
             document.querySelectorAll('.detail-page').forEach(page => {
@@ -898,7 +887,6 @@
             window.scrollTo(0, 0);
         }
 
-        // 스무스 스크롤
         function scrollToSection(sectionId) {
             const target = document.getElementById(sectionId);
             if (target) {
@@ -909,7 +897,6 @@
             }
         }
 
-        // 라이트박스 함수들
         function openLightbox(imageSrc) {
             document.getElementById('lightbox-image').src = imageSrc;
             document.getElementById('lightbox').classList.add('active');
@@ -921,21 +908,18 @@
             document.body.style.overflow = 'auto';
         }
 
-        // 라이트박스 배경 클릭시 닫기
         document.getElementById('lightbox').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeLightbox();
             }
         });
 
-        // ESC 키로 라이트박스 닫기
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeLightbox();
             }
         });
 
-        // 스크롤 애니메이션
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -950,9 +934,7 @@
             });
         }, observerOptions);
 
-        // 페이지 로드시 애니메이션 초기화
         document.addEventListener('DOMContentLoaded', function() {
-            // 포트폴리오 아이템 애니메이션
             document.querySelectorAll('.portfolio-item').forEach((item, index) => {
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(30px)';
@@ -960,7 +942,6 @@
                 observer.observe(item);
             });
 
-            // 갤러리 아이템 애니메이션
             document.querySelectorAll('.gallery-item').forEach((item, index) => {
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(30px)';
@@ -968,7 +949,6 @@
                 observer.observe(item);
             });
 
-            // 스킬 아이템 애니메이션  
             document.querySelectorAll('.skill-item').forEach((item, index) => {
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(30px)';
@@ -977,7 +957,6 @@
             });
         });
 
-        // 네비게이션 스크롤 효과
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
