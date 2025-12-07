@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김규리 - 디지털 아티스트 포트폴리오</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* 네비게이션 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(139, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(139, 0, 0, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+            text-decoration: none;
+            background: linear-gradient(135deg, #8B0000 0%, #4A0E0E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #8B0000;
+        }
+
+        /* 히어로 섹션 */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #8B0000 0%, #4A0E0E 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            animation: slideInUp 1s ease-out 0.4s both;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 포트폴리오 섹션 */
+        .portfolio {
+            padding: 5rem 2rem;
+            background: #f8f8f8;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #8B0000 0%, #4A0E0E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(139, 0, 0, 0.1);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.3);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-content h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(139, 0, 0, 0.1);
+            color: #8B0000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(139, 0, 0, 0.2);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(139, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-overlay span {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* 상세 페이지 스타일 */
+        .detail-page {
+            display: none;
+            padding: 5rem 2rem;
+            min-height: 100vh;
+            background: #f8f8f8;
+        }
+
+        .detail-page.active {
+            display: block;
+        }
+
+        .back-button {
+            background: rgba(139, 0, 0, 0.1);
+            color: #8B0000;
+            border: 1px solid rgba(139, 0, 0, 0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: rgba(139, 0, 0, 0.2);
+            transform: translateX(-5px);
+        }
+
+        .detail-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .detail-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .detail-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(139, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 라이트박스 */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        /* About 섹션 */
+        .about {
+            padding: 5rem 2rem;
+            background: #ffffff;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(139, 0, 0, 0.1);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.15);
+        }
+
+        .skill-item i {
+            font-size: 3rem;
+            color: #8B0000;
+            margin-bottom: 1rem;
+        }
+
+        .skill-item h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* 푸터 */
+        footer {
+            background: #ffffff;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(139, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: #8B0000;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #4A0E0E;
+        }
+
+        .footer-text {
+            color: #666;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 메인 페이지 -->
+    <div id="main-page">
+        <nav>
+            <div class="container">
+                <span class="logo" onclick="showMainPage()">김규리</span>
+                <ul class="nav-links">
+                    <li><a onclick="showMainPage()">홈</a></li>
+                    <li><a onclick="scrollToSection('portfolio')">포트폴리오</a></li>
+                    <li><a onclick="scrollToSection('about')">소개</a></li>
+                    <li><a onclick="scrollToSection('contact')">연락처</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>김규리</h1>
+                <p>픽셀에서 시작해 차원을 넘나드는 크리에이터</p>
+                <span class="cta-button" onclick="scrollToSection('portfolio')">작품 보기</span>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <div class="section-title">
+                    <h2>포트폴리오</h2>
+                    <p>도트 아트부터 3D 모델링까지, 디지털 세계의 모든 것을 창조합니다</p>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" onclick="showDetailPage('illustration')">
+                        <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/f47f4343-5b32-484e-a749-718fc908b427_car_202x158.png?h=bb7aca765f9d9bcc5fc9422ecafaccc9" alt="일러스트">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-images"></i>
+                            <span>5개 작품 보기</span>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>디지털 일러스트</h3>
+                            <p>감성적인 표현과 기술적 완성도를 추구한 일러스트레이션 작품들입니다.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Digital Illustration</span>
+                                <span class="tag">Art Direction</span>
+                                <span class="tag">Visual Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" onclick="showDetailPage('character')">
+                        <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/0a7da459-b88d-4f04-b0e6-e7c41ae3fac2_rwc_2005x1220x1016x794x1016.png?h=41c3cedb7e7dae49fae7252633bf6875" alt="캐릭터 창작">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-user-friends"></i>
+                            <span>8개 작품 보기</span>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>캐릭터 디자인</h3>
+                            <p>독창적인 스토리와 개성을 담은 캐릭터들을 창작했습니다.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Character Design</span>
+                                <span class="tag">Concept Art</span>
+                                <span class="tag">Storytelling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" onclick="showDetailPage('pixel')">
+                        <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/4339f926-ac24-41c0-9566-74c6131d186f_car_202x158.png?h=12077105fc614b87b862382ce9d2ea1f" alt="도트 아트">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-th"></i>
+                            <span>3개 작품 보기</span>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>도트 아트 컬렉션</h3>
+                            <p>픽셀 단위로 섬세하게 제작된 도트 아트 작품들입니다.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Pixel Art</span>
+                                <span class="tag">Game Design</span>
+                                <span class="tag">Digital Art</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" onclick="showDetailPage('3d')">
+                        <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3b943e26-8b2c-444f-abf6-4426b59714e0_rwc_0x11x405x316x405.png?h=9e151d1410b645d2839cce17a2692a75" alt="3D 모델링">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-cube"></i>
+                            <span>4개 작품 보기</span>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>3D 모델링 & 렌더링</h3>
+                            <p>Blender를 활용한 3차원 모델링 작업들입니다.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">3D Modeling</span>
+                                <span class="tag">Blender</span>
+                                <span class="tag">Rendering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>소개</h2>
+                    <p>열정적인 디지털 아티스트로서의 여정</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>안녕하세요, 김규리입니다!</h3>
+                        <p>저는 디지털 아트와 3D 모델링에 열정을 가진 크리에이터입니다. 도트 아트부터 현대적인 3D 렌더링까지, 다양한 매체를 통해 창의적인 작품을 만들어나가고 있습니다.</p>
+                        
+                        <p>각각의 작품에는 스토리와 감정을 담아내려 노력하며, 기술적 완성도와 예술적 가치를 동시에 추구합니다. 새로운 도전과 학습을 통해 지속적으로 성장하는 아티스트가 되고자 합니다.</p>
+                    </div>
+                    
+                    <div class="skills">
+                        <div class="skill-item">
+                            <i class="fas fa-paint-brush"></i>
+                            <h4>디지털 페인팅</h4>
+                            <p>Photoshop, Procreate</p>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <i class="fas fa-cube"></i>
+                            <h4>3D 모델링</h4>
+                            <p>Blender, 3ds Max</p>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <i class="fas fa-gamepad"></i>
+                            <h4>게임 아트</h4>
+                            <p>Pixel Art, UI Design</p>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <i class="fas fa-user-friends"></i>
+                            <h4>캐릭터 디자인</h4>
+                            <p>Concept Art, Illustration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#" title="이메일"><i class="fas fa-envelope"></i></a>
+                    <a href="#" title="인스타그램"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="아트스테이션"><i class="fab fa-artstation"></i></a>
+                    <a href="#" title="링크드인"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <p class="footer-text">&copy; 2025 김규리. 모든 권리 보유.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 일러스트 상세 페이지 -->
+    <div id="illustration-page" class="detail-page">
+        <nav>
+            <div class="container">
+                <span class="logo" onclick="showMainPage()">김규리</span>
+                <ul class="nav-links">
+                    <li><a onclick="showMainPage()">홈</a></li>
+                    <li><a onclick="showMainPage(); setTimeout(() => scrollToSection('portfolio'), 100)">포트폴리오</a></li>
+                    <li><a onclick="showMainPage(); setTimeout(() => scrollToSection('about'), 100)">소개</a></li>
+                    <li><a onclick="showMainPage(); setTimeout(() => scrollToSection('contact'), 100)">연락처</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <span class="back-button" onclick="showMainPage()">
+                <i class="fas fa-arrow-left"></i> 메인으로 돌아가기
+            </span>
+            <div class="detail-title">
+                <h2>디지털 일러스트</h2>
+                <p>감성적인 표현과 기술적 완성도를 추구한 일러스트레이션 작품들</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/a4dfb6cc-2502-4ac8-89b0-0ee9ab788774.jpg?h=f85ce09b0b7024de87c1b73735b32a38')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/a4dfb6cc-2502-4ac8-89b0-0ee9ab788774.jpg?h=f85ce09b0b7024de87c1b73735b32a38" alt="일러스트 1">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/85f9b455-b560-4cb2-ba46-6853d16431d4.png?h=e3c81b06e4f4325fd5167bbf1151afed')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/85f9b455-b560-4cb2-ba46-6853d16431d4.png?h=e3c81b06e4f4325fd5167bbf1151afed" alt="일러스트 2">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3ea910a6-7ab3-4170-be3b-33ae8e9c091c_rw_600.png?h=bc9d73d3dc31b43b59a0f0e5b5c59f59')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3ea910a6-7ab3-4170-be3b-33ae8e9c091c_rw_600.png?h=bc9d73d3dc31b43b59a0f0e5b5c59f59" alt="일러스트 3">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3caa6f43-1f28-481f-92fa-43a2799eefd4_rw_600.png?h=b5ed5ddefc1d2beafcffd5e25c89a669')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3caa6f43-1f28-481f-92fa-43a2799eefd4_rw_600.png?h=b5ed5ddefc1d2beafcffd5e25c89a669" alt="일러스트 4">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/1caff78f-2a50-4456-b756-d892c971cac8_rw_600.png?h=6f30db9dad4396d8726b9a02b235ea73')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/1caff78f-2a50-4456-b756-d892c971cac8_rw_600.png?h=6f30db9dad4396d8726b9a02b235ea73" alt="일러스트 5">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 캐릭터 창작 상세 페이지 -->
+    <div id="character-page" class="detail-page">
+        <nav>
+            <div class="container">
+                <span class="logo" onclick="showMainPage()">김규리</span>
+                <ul class="nav-links">
+                    <li><a onclick="showMainPage()">홈</a></li>
+                    <li><a onclick="showMainPage(); setTimeout(() => scrollToSection('portfolio'), 100)">포트폴리오</a></li>
+                    <li><a onclick="showMainPage(); setTimeout(() => scrollToSection('about'), 100)">소개</a></li>
+                    <li><a onclick="showMainPage(); setTimeout(() => scrollToSection('contact'), 100)">연락처</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <span class="back-button" onclick="showMainPage()">
+                <i class="fas fa-arrow-left"></i> 메인으로 돌아가기
+            </span>
+            <div class="detail-title">
+                <h2>캐릭터 디자인</h2>
+                <p>독창적인 스토리와 개성을 담은 캐릭터 창작 작품들</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/b6476758-9ec5-49a6-ba15-53485cd53544.png?h=9d619c2b0fa0b57fdedf37675f879486')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/b6476758-9ec5-49a6-ba15-53485cd53544.png?h=9d619c2b0fa0b57fdedf37675f879486" alt="캐릭터 1">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/5ed76614-1387-4770-8cf7-92df5a3ad80b_rw_600.png?h=63a4839f4ec01bdb4ab60d6fad40e3de')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/5ed76614-1387-4770-8cf7-92df5a3ad80b_rw_600.png?h=63a4839f4ec01bdb4ab60d6fad40e3de" alt="캐릭터 2">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/467e6331-f985-4a85-a325-aa66c8dbbb55_rw_600.jpg?h=862f0c651d96ea8af0fff6ad47641955')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/467e6331-f985-4a85-a325-aa66c8dbbb55_rw_600.jpg?h=862f0c651d96ea8af0fff6ad47641955" alt="캐릭터 3">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/d375c851-a386-47e7-b6d3-7bb47de3076c_rw_600.jpg?h=497f55883b77099258a0ccd0ea32925d')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/d375c851-a386-47e7-b6d3-7bb47de3076c_rw_600.jpg?h=497f55883b77099258a0ccd0ea32925d" alt="캐릭터 4">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/380968f0-b875-4b1d-983c-d7fdbe13884f_rw_600.png?h=c56be909e9d75b8935f0a8da530563a4')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/380968f0-b875-4b1d-983c-d7fdbe13884f_rw_600.png?h=c56be909e9d75b8935f0a8da530563a4" alt="캐릭터 5">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/f6e48c5d-f25f-43e2-9a1a-38776d7a8842_rw_600.png?h=55dbefae701ecb30abd267c463bc39de')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/f6e48c5d-f25f-43e2-9a1a-38776d7a8842_rw_600.png?h=55dbefae701ecb30abd267c463bc39de" alt="캐릭터 6">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/6a981b36-dcf4-4616-8ca3-2e88b8e4550e_rw_600.png?h=ec157df66cc34983c30c8adcdb06b0e2')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/6a981b36-dcf4-4616-8ca3-2e88b8e4550e_rw_600.png?h=ec157df66cc34983c30c8adcdb06b0e2" alt="캐릭터 7">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/41389299-4b37-4c8f-ad0a-52441613a414_rw_600.png?h=5b8f662c02901684eeab504f8c2a5987')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/41389299-4b37-4c8f-ad0a-52441613a414_rw_600.png?h=5b8f662c02901684eeab504f8c2a5987" alt="캐릭터 8">
+ </div>
+                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/Bo2JpWE.jpeg')">
+                    <img src="https://i.imgur.com/Bo2JpWE.jpeg" alt="캐릭터 9">
+            </div>
+        </div>
+    </div>
+
+    <!-- 도트 아트 상세 페이지 -->
+    <div id="pixel-page" class="detail-page">
+        <nav>
+            <div class="container">
+                <span class="logo" onclick="showMainPage()">김규리</span>
+                <ul class="nav-links">
+                    <li><a onclick="showMainPage()">홈</a></li>
+                    <li><a onclick="showMainPage(); setTimeout(() => scrollToSection('portfolio'), 100)">포트폴리오</a></li>
+                    <li><a onclick="showMainPage(); setTimeout(() => scrollToSection('about'), 100)">소개</a></li>
+                    <li><a onclick="showMainPage(); setTimeout(() => scrollToSection('contact'), 100)">연락처</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <span class="back-button" onclick="showMainPage()">
+                <i class="fas fa-arrow-left"></i> 메인으로 돌아가기
+            </span>
+            <div class="detail-title">
+                <h2>도트 아트 컬렉션</h2>
+                <p>픽셀 단위로 섬세하게 제작된 레트로 게임 스타일의 도트 아트</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3c97703e-64c4-4ac9-9baf-0884f07d68c3_rw_600.png?h=954656593cf881eb3db208827a3b9c92')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/3c97703e-64c4-4ac9-9baf-0884f07d68c3_rw_600.png?h=954656593cf881eb3db208827a3b9c92" alt="도트 아트 1">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/198f49bf-0830-4054-988e-81217cbf045f_rw_600.png?h=02acd3eed49f452a276ddfd521a81441')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/198f49bf-0830-4054-988e-81217cbf045f_rw_600.png?h=02acd3eed49f452a276ddfd521a81441" alt="도트 아트 2">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/d4d1bcac-9614-4b16-aa45-3e958598d009_rw_600.png?h=8729ae0b212b8af25d98bafcf49c2e8b')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/d4d1bcac-9614-4b16-aa45-3e958598d009_rw_600.png?h=8729ae0b212b8af25d98bafcf49c2e8b" alt="도트 아트 3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D 모델링 상세 페이지 -->
+    <div id="3d-page" class="detail-page">
+        <nav>
+            <div class="container">
+                <span class="logo" onclick="showMainPage()">김규리</span>
+                <ul class="nav-links">
+                    <li><a onclick="showMainPage()">홈</a></li>
+                    <li><a onclick="showMainPage(); setTimeout(() => scrollToSection('portfolio'), 100)">포트폴리오</a></li>
+                    <li><a onclick="showMainPage(); setTimeout(() => scrollToSection('about'), 100)">소개</a></li>
+                    <li><a onclick="showMainPage(); setTimeout(() => scrollToSection('contact'), 100)">연락처</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <span class="back-button" onclick="showMainPage()">
+                <i class="fas fa-arrow-left"></i> 메인으로 돌아가기
+            </span>
+            <div class="detail-title">
+                <h2>3D 모델링 & 렌더링</h2>
+                <p>Blender를 활용한 3차원 모델링과 사실적인 렌더링 작업들</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/26de9737-bc5f-4570-beac-f0c8f80aa0ef_rw_600.png?h=007db7ee5364a58a9496ae595034bfeb')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/26de9737-bc5f-4570-beac-f0c8f80aa0ef_rw_600.png?h=007db7ee5364a58a9496ae595034bfeb" alt="3D 모델링 1">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/96ea2810-0bd3-4555-87b3-a181973de558_rw_600.png?h=d02c9950e4eb5814b4c23689dc01617c')">
+                    <img src="https://cdn.myportfolio.com/1290f32f-e6f2-4e89-8527-f02d53c44428/96ea2810-0bd3-4555-87b3-a181973de558_rw_600.png?h=d02c9950e4eb5814b4c23689dc01617c" alt="3D 모델링 2">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://pbs.twimg.com/media/G0D7pRPaQAAVjTA?format=jpg&name=medium')">
+                    <img src="https://pbs.twimg.com/media/G0D7pRPaQAAVjTA?format=jpg&name=medium" alt="3D 모델링 3">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://pbs.twimg.com/media/G0D7rkZbMAAQkXe?format=png&name=small')">
+                    <img src="https://pbs.twimg.com/media/G0D7rkZbMAAQkXe?format=png&name=small" alt="3D 모델링 4">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 라이트박스 -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-image" src="" alt="">
+    </div>
+
+    <script>
+        // 페이지 전환 함수들
+        function showMainPage() {
+            document.getElementById('main-page').style.display = 'block';
+            document.querySelectorAll('.detail-page').forEach(page => {
+                page.style.display = 'none';
+            });
+            window.scrollTo(0, 0);
+        }
+
+        function showDetailPage(category) {
+            document.getElementById('main-page').style.display = 'none';
+            document.querySelectorAll('.detail-page').forEach(page => {
+                page.style.display = 'none';
+            });
+            document.getElementById(category + '-page').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // 스무스 스크롤
+        function scrollToSection(sectionId) {
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // 라이트박스 함수들
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox-image').src = imageSrc;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // 라이트박스 배경 클릭시 닫기
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // ESC 키로 라이트박스 닫기
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 페이지 로드시 애니메이션 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            // 포트폴리오 아이템 애니메이션
+            document.querySelectorAll('.portfolio-item').forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(item);
+            });
+
+            // 갤러리 아이템 애니메이션
+            document.querySelectorAll('.gallery-item').forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(item);
+            });
+
+            // 스킬 아이템 애니메이션  
+            document.querySelectorAll('.skill-item').forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`;
+                observer.observe(item);
+            });
+        });
+
+        // 네비게이션 스크롤 효과
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
